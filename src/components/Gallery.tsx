@@ -110,8 +110,8 @@ const Gallery = () => {
     setCategory(localStorage.getItem("category"))
   }, [])
 
-  useEffect(() => {
-    if (tag) {
+  useEffect(() => void {
+    if (tag: string) {
       if (window && containerRef.current) {
         window.cloudinary.galleryWidget({
           container: containerRef.current,
@@ -143,7 +143,7 @@ const Gallery = () => {
       return (
         <section className='flex flex-col w-[80%] mx-auto mt-[60px]'>
           <NavLink to="/" className="mb-[20px] w-[120px] text-center bg-slate-400 rounded-md hover:bg-slate-200 hover:scale-110 ease-linear duration-300">Back to Main</NavLink>
-          <ul className='grid grid-cols-3 gap-2 px-[20px] mb-[60px]'>
+          <ul className='grid sm:grid-cols-2 md:grid-cols-3 gap-2 px-[20px] mb-[60px]'>
             {data.map(item => (
               <li key={item.id} className="relative rounded-[5px]" onClick={() => {
                 handleSetTag(item.tag);
@@ -157,14 +157,18 @@ const Gallery = () => {
                   }}
                   className='rounded-xl cursor-pointer'
                 />
-                <p style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  opacity: "0.3",
-                  fontSize: "50px"
-                }}>{item.caption}</p>
+                <p 
+                 className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] opacity-25 xs:text-3xl md:text-5xl'
+                
+                // style={{
+                //   position: "absolute",
+                //   top: "50%",
+                //   left: "50%",
+                //   transform: "translate(-50%, -50%)",
+                //   opacity: "0.3",
+                //   fontSize: "50px"
+                // }}
+                >{item.caption}</p>
               </li>
             ))}
           </ul>
@@ -189,14 +193,17 @@ const Gallery = () => {
                   className='rounded-xl cursor-pointer'
                 />
 
-                <p style={{
+                <p 
+               
+                style={{
                   position: "absolute",
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%)",
                   opacity: "0.3",
                   fontSize: "50px"
-                }}>{item.caption}</p>
+                }}
+                >{item.caption}</p>
               </li>
             ))}
           </ul>

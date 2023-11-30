@@ -16,7 +16,7 @@ const Hero = () => {
                 <div className='flex flex-col justify-center items-center'>
                     <h1 className='stroking absolute top-[40%] left-[50%] translate-x-[-50%]' >Welcome</h1>
                     <NavLink to="" className='absolute top-[70%] left-[50%] translate-x-[-60%] text-white hover:text-gray-300 text-lg text-center inline-block rounded-[20px] border-2 border-white hover:border-gray-300 py-[5px] px-[20px] w-[100px]'
-                        onClick={handleScroll}
+                         onClick={handleScroll}
                     >Explore</NavLink>
                 </div>
             </div>

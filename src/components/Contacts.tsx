@@ -28,13 +28,13 @@ const Contacts = () => {
     });
   };
 
-  const form = useRef<HTMLFormElement>(null);
+  const refForm = useRef<HTMLFormElement>(null!);
 
   const sendEmail = (e: FormEvent) => {
     e.preventDefault();
     const target = e.target as HTMLFormElement
 
-    emailjs.sendForm('service_w5o1do5', 'template_ojzaewl', form.current, import.meta.env.VITE_EMAILJS_KEY)
+    emailjs.sendForm('service_w5o1do5', 'template_ojzaewl', refForm.current, import.meta.env.VITE_EMAILJS_KEY)
     alert("Thank you. I will get back to you as soon as possible.");
     if (e.target) {
       target.reset();
@@ -73,7 +73,7 @@ const Contacts = () => {
 
         <div className="flex flex-col gap-1">
           <h5 className='text-center mb-[20px] font-bold text-xl'>Write me</h5>
-          <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-1">
+          <form ref={refForm} onSubmit={sendEmail} className="flex flex-col gap-1">
             <input
               type='text'
               name='name'
