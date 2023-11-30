@@ -35,6 +35,7 @@ const Contacts = () => {
     const target = e.target as HTMLFormElement
 
     emailjs.sendForm('service_w5o1do5', 'template_ojzaewl', refForm.current, import.meta.env.VITE_EMAILJS_KEY)
+
     alert("Thank you. I will get back to you as soon as possible.");
     if (e.target) {
       target.reset();

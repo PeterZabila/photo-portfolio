@@ -159,15 +159,6 @@ const Gallery = () => {
                 />
                 <p 
                  className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] opacity-25 xs:text-3xl md:text-5xl'
-                
-                // style={{
-                //   position: "absolute",
-                //   top: "50%",
-                //   left: "50%",
-                //   transform: "translate(-50%, -50%)",
-                //   opacity: "0.3",
-                //   fontSize: "50px"
-                // }}
                 >{item.caption}</p>
               </li>
             ))}
