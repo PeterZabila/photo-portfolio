@@ -2,6 +2,8 @@ import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 
+declare var cloudinary: any;
+
 import img from '@/assets/images/wedding1/01.jpg'
 import img1 from '@/assets/images/wedding1/02.jpg'
 import img2 from '@/assets/images/wedding1/03.jpg'
@@ -104,29 +106,45 @@ const familyData = [
 const Gallery = () => {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const [category, setCategory] = useState<string | null>('Wedding');
-  const [tag, setTag] = useState("");
+  const [tag, setTag] = useState("w3");
 
   useEffect(() => {
     setCategory(localStorage.getItem("category"))
   }, [])
 
-  useEffect(() => void {
-    if (tag: string) {
-      if (window && containerRef.current) {
-        window.cloudinary.galleryWidget({
-          container: containerRef.current,
-          cloudName: import.meta.env.VITE_CLOUDINARY_CLOUDNAME,
-          aspectRatio: '16:9',
-          mediaAssets: [{ tag }],
-          carouselLocation: 'bottom'
-        })
-          .render()
-      } else {
-        return null
-      }
-    }
 
-  }, [tag]);
+  const myGallery = cloudinary.galleryWidget({
+    container: containerRef?.current,
+    cloudName: import.meta.env.VITE_CLOUDINARY_CLOUDNAME,
+    mediaAssets: [{ tag }],
+    carouselLocation: 'bottom'
+  });
+
+  useEffect(() => {
+    if(tag) {
+      myGallery.render()
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tag])
+
+  // // useEffect(() => {
+  // //   if (tag) {
+  // //     if (window && containerRef.current) {
+  // //       window.cloudinary.galleryWidget({
+  // //         container: containerRef.current,
+  // //         cloudName: import.meta.env.VITE_CLOUDINARY_CLOUDNAME,
+  // //         aspectRatio: '16:9',
+  // //         mediaAssets: [{ tag }],
+  // //         carouselLocation: 'bottom'
+  // //       })
+  // //         .render()
+  // //     } else {
+  // //       return null
+  // //     }
+  // 
+  // //   }
+
+  // }, [tag]);
 
   const executeScroll = () => {
     containerRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -163,7 +181,7 @@ const Gallery = () => {
               </li>
             ))}
           </ul>
-          <motion.div ref={containerRef} className='w-full p-5 mt-[60px]'></motion.div>
+          <motion.div ref={containerRef} className='w-full p-5 mt-[40px] mb-[60px]'></motion.div>
         </section>
       )
     }
