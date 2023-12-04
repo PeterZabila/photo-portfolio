@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import decor from "../assets/dec.png"
+// import decor from "../assets/dec.png"
 import { useRef } from 'react';
 
 const Hero = () => {
@@ -21,7 +21,7 @@ const Hero = () => {
                 </div>
             </div>
             <p className='text-center text-slate-800 text-2xl border-b border-gray-200'>Photography is not only about sseing...<br /> It's about feeleing...<br /> A feeling of a momet, gentle touch<br />Feeling that your soulmate is next to you... <br />Till the END of time...</p>
-            <img src={decor} alt="decorative element" className='sx:w-[250px] md:w-[350px] lg:w-[350px] bg-transparent inline-block' />
+            {/* <img src={decor} alt="decorative element" className='sx:w-[250px] md:w-[350px] lg:w-[350px] bg-transparent inline-block' /> */}
             <div ref={scrollRef}></div>
         </div>
 
